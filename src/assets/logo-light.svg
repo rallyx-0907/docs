@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="RallyX">
-  <g fill="none" stroke="#0fa97a" stroke-width="3.25" stroke-linecap="round">
+  <g fill="none" stroke="#111b20" stroke-width="3.25" stroke-linecap="round">
     <path d="M7 25 L25 7" />
     <path d="M7 7 L17 17" />
   </g>
-  <circle cx="24.5" cy="24.5" r="3.25" fill="#0fa97a" />
+  <circle cx="24.5" cy="24.5" r="3.25" fill="#077e62" />
 </svg>

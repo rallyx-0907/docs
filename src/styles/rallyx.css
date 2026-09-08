@@ -1,0 +1,64 @@
+/*
+ * RallyX theme — jade accent on cool neutral grays.
+ *
+ * Overrides Starlight's design tokens only. Values mirror the shape of
+ * Starlight's own props.css (accent-low / accent / accent-high, gray-1..7)
+ * so every built-in component picks the palette up for free.
+ *
+ * Typography stays on Starlight's system font stack on purpose: zero network
+ * requests, zero layout shift. Set `--sl-font` here to change it.
+ */
+
+/* Dark mode (Starlight's default). */
+:root {
+	--sl-color-white: hsl(0, 0%, 100%);
+	--sl-color-gray-1: hsl(200, 18%, 94%);
+	--sl-color-gray-2: hsl(200, 7%, 77%);
+	--sl-color-gray-3: hsl(200, 7%, 56%);
+	--sl-color-gray-4: hsl(200, 8%, 36%);
+	--sl-color-gray-5: hsl(200, 11%, 22%);
+	--sl-color-gray-6: hsl(200, 15%, 15%);
+	--sl-color-black: hsl(200, 14%, 9%);
+
+	--sl-color-accent-low: hsl(164, 48%, 15%);
+	--sl-color-accent: hsl(162, 72%, 40%);
+	--sl-color-accent-high: hsl(160, 68%, 78%);
+}
+
+/* Light mode. */
+:root[data-theme='light'] {
+	--sl-color-white: hsl(200, 14%, 9%);
+	--sl-color-gray-1: hsl(200, 15%, 15%);
+	--sl-color-gray-2: hsl(200, 11%, 22%);
+	--sl-color-gray-3: hsl(200, 8%, 36%);
+	--sl-color-gray-4: hsl(200, 7%, 56%);
+	--sl-color-gray-5: hsl(200, 7%, 77%);
+	--sl-color-gray-6: hsl(200, 18%, 94%);
+	--sl-color-gray-7: hsl(200, 20%, 97%);
+	--sl-color-black: hsl(0, 0%, 100%);
+
+	--sl-color-accent-high: hsl(168, 82%, 17%);
+	--sl-color-accent: hsl(166, 90%, 26%);
+	--sl-color-accent-low: hsl(160, 55%, 88%);
+}
+
+/* Splash hero: let the tagline breathe instead of running the full width. */
+.hero > .stack {
+	max-width: 46rem;
+}
+
+.hero .tagline {
+	font-size: var(--sl-text-lg);
+	color: var(--sl-color-gray-2);
+}
+
+/*
+ * Starlight cycles card icon colors through orange/green/red/blue by position.
+ * Minimalism: one accent, everywhere. These two custom properties are the
+ * component's own styling surface (see Card.astro), so no markup override needed.
+ */
+.card,
+.card:nth-child(n) {
+	--sl-card-border: var(--sl-color-accent);
+	--sl-card-bg: var(--sl-color-accent-low);
+}

@@ -1,40 +1,40 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: RallyX
+description: A research lab building innovations for Vietnam, starting with Rally — a badminton court booking platform.
+template: splash
+head:
+  # Without this the home page title renders as "RallyX | RallyX".
+  - tag: title
+    content: RallyX — a research lab building innovations for Vietnam
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: A research lab building innovations for Vietnam. We ship small, sharp products that people can trust — starting with Rally.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: About the lab
+      link: /about/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: Meet Rally
+      link: /rally/overview/
       icon: external
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
-
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+<CardGrid>
+	<Card title="The lab" icon="star">
+		RallyX researches and builds for the Vietnamese market — the problems here,
+		the way people here actually use software. [Read about the lab](/about/).
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Five missions" icon="approve-check">
+		Modern, optimized, minimalism, trusted, real value. They are the bar every
+		product clears before it ships. [See the missions](/missions/).
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Rally" icon="rocket">
+		Our first product: booking a badminton court in Vietnam, without the
+		group-chat back and forth. [Rally overview](/rally/overview/).
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="These docs" icon="open-book">
+		Everything RallyX publishes lives here — product docs, decisions, and the
+		reasoning behind them.
 	</Card>
 </CardGrid>

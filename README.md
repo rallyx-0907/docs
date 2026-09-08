@@ -1,49 +1,55 @@
-# Starlight Starter Kit: Basics
+# RallyX Docs
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Documentation site for [RallyX](https://github.com/rallyx-0907) — a research lab
+building innovations for Vietnam — and for Rally, its badminton court booking
+platform.
 
-```
-pnpm create astro@latest -- --template starlight
-```
+Built with [Astro](https://astro.build) + [Starlight](https://starlight.astro.build).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Develop
 
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+```sh
+pnpm install
+pnpm dev       # http://localhost:4321
+pnpm build     # production build into ./dist
+pnpm preview   # serve the built site locally
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+`pnpm build` is the real check: Starlight fails the build on missing frontmatter
+and broken internal links.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Structure
 
-Static assets, like favicons, can be placed in the `public/` directory.
+```
+src/
+├── assets/            logo-light.svg, logo-dark.svg
+├── content/docs/      every page — Markdown / MDX, one file per URL
+│   ├── index.mdx      splash landing page
+│   ├── about.md
+│   ├── missions.md
+│   └── rally/
+├── styles/rallyx.css  theme tokens (jade accent, cool grays)
+└── content.config.ts  Starlight docs collection
+public/favicon.svg
+astro.config.mjs       site config: title, logo, sidebar, locales
+```
 
-## 🧞 Commands
+## Adding a page
 
-All commands are run from the root of the project, from a terminal:
+Drop a `.md` or `.mdx` file in `src/content/docs/` with `title` and `description`
+frontmatter. Anything under `rally/` joins that sidebar section automatically;
+top-level pages need an entry in the `sidebar` array in `astro.config.mjs`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Adding Vietnamese
 
-## 👀 Want to learn more?
+The site declares a root locale, so English content sits at the top level and URLs
+have no `/en/` prefix. To add Vietnamese, add to `locales` in `astro.config.mjs`:
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+```js
+locales: {
+  root: { label: 'English', lang: 'en' },
+  vi: { label: 'Tiếng Việt', lang: 'vi' },
+}
+```
+
+then put translated pages in `src/content/docs/vi/`. No existing file moves.
