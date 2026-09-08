@@ -9,8 +9,10 @@
  * requests, zero layout shift. Set `--sl-font` here to change it.
  */
 
-/* Dark mode (Starlight's default). */
-:root {
+/* Dark mode (Starlight's default). ::backdrop matches props.css so the
+   search dialog's overlay picks up the palette too. */
+:root,
+::backdrop {
 	--sl-color-white: hsl(0, 0%, 100%);
 	--sl-color-gray-1: hsl(200, 18%, 94%);
 	--sl-color-gray-2: hsl(200, 7%, 77%);
@@ -26,7 +28,8 @@
 }
 
 /* Light mode. */
-:root[data-theme='light'] {
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
 	--sl-color-white: hsl(200, 14%, 9%);
 	--sl-color-gray-1: hsl(200, 15%, 15%);
 	--sl-color-gray-2: hsl(200, 11%, 22%);
